@@ -3,6 +3,10 @@
 	 
 	 
 	 
+	 <select id="findAll" resultType="User">
+	 	select * from `user`
+	 </select>
+	 
 	 
 	 <select id="findByIdAndPw" parameterType="User" resultType="User">
 	 	select * from user

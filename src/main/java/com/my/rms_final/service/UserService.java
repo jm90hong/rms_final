@@ -1,5 +1,7 @@
 package com.my.rms_final.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,11 @@ public class UserService {
 	
 	@Autowired
 	UserDao userDao;
+	
+	
+	public List<User> findAll() {
+		return userDao.findAll();
+	}
 	
 	
 	public User findByIdAndPw(User user) {

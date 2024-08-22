@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,34 +23,36 @@
 			<h3>회원리스트 from Model</h3>
 			
 			<div id="user-list-1">
-				
-				<nav class="user-box">
-					<span>닉네임1234</span>
-					<span>서울시 용산구</span>
-					<span>프론트엔드</span>
-				</nav>
-				<nav class="user-box">
-					<span>닉네임1234</span>
-					<span>서울시 용산구</span>
-					<span>프론트엔드</span>
-				</nav>
-				<nav class="user-box">
-					<span>닉네임1234</span>
-					<span>서울시 용산구</span>
-					<span>프론트엔드</span>
-				</nav>
+				<c:forEach items="${users}" var="user">
+					<nav class="user-box">
+						<span>${user.nick}</span>
+						<span>${user.address}</span>
+						<span>${user.type}</span>
+					</nav>
+				</c:forEach>
+			</div>
+			
+			
+			<h3>회원리스트 from ajax</h3>
+			
+			<div id="user-list-2">
 				
 			</div>
 			
 			
 			
-			<h3>회원리스트 from ajax</h3>
-			
 			<h3>일별박스오피스 api</h3>
 			
+			<input type="date" id="date"/>
+			<button id="fetch-movie-btn">영화조회</button>
+			
+			<div id="mv-list">
+				
+			</div>
 			
 		</div>
 	</main>
 	
 </body>
+<script src="./js/home.js"></script>
 </html>

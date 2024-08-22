@@ -1,5 +1,7 @@
 package com.my.rms_final.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -12,6 +14,10 @@ public class UserDao {
 	
 	@Autowired
 	SqlSession s;
+	
+	public List<User> findAll() {
+		return s.selectList("UserMapper.findAll");
+	}
 	
 	
 	public User findByIdAndPw(User user) {

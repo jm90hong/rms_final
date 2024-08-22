@@ -1,12 +1,21 @@
 package com.my.rms_final.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.my.rms_final.service.UserService;
+import com.my.rms_final.vo.User;
+
 @Controller
 public class ViewController {
 	
+	
+	@Autowired
+	UserService userService;
 	
 	
 	@GetMapping("/login")
@@ -29,7 +38,10 @@ public class ViewController {
 	public String home(Model model) {
 		
 		
+		List<User> users = userService.findAll();
+		
 		model.addAttribute("menu","home");
+		model.addAttribute("users",users);
 		
 		return "home";
 	}
